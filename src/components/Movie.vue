@@ -39,7 +39,7 @@
 
 <script>
 // define the external API URL
-const API_URL = 'https://netflixroulette.net/api/api.php'
+const API_URL = 'https://netflixroulette.net/api/api.php' //need new api, this one doesn't work anymore.
 // Helper function to help build urls to fetch movie details from title
 function buildUrl (title) {
   return `${API_URL}?title=${title}`
@@ -49,7 +49,7 @@ export default {
   data () {
     return {
       title: '',
-      error_message: '',
+      error_message: 'error',
       loading: false, // to track when app is retrieving data
       movie: {}
     }
