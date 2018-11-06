@@ -1,6 +1,9 @@
 <template>
     <div class="container">
 
+        <app-movie></app-movie>
+
+
         <app-new-quote @quoteAdded="newQuote"></app-new-quote>
         <app-quote-grid :quotes="quotes"></app-quote-grid>
     </div>
@@ -9,6 +12,7 @@
 <script>
 import QuoteGrid from './components/QuoteGrid.vue';
 import NewQuote from './components/NewQuote.vue';
+import Movie from './components/Movie.vue';
     export default {
         data: function() {
             return {
@@ -20,7 +24,8 @@ import NewQuote from './components/NewQuote.vue';
         },
         components: {
           appQuoteGrid: QuoteGrid,
-          appNewQuote: NewQuote
+          appNewQuote: NewQuote,
+          appMovie: Movie
         },
         methods: {
           newQuote(quote) {
