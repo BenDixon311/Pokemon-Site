@@ -32,8 +32,9 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-          <v-flex shrink>
-           
+          <v-flex>
+             <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+            <app-quote-grid></app-quote-grid>
           </v-flex>
         </v-layout>
       </v-container>
@@ -45,10 +46,28 @@
 </template>
 
 <script>
+import QuoteGrid from './components/QuoteGrid.vue';
+import NewQuote from './components/NewQuote.vue';
   export default {
     data: () => ({
-      drawer: null
+      drawer: null,
+      return: {
+        players: []
+      }
     }),
+  
+    components: {
+      appQuoteGrid: QuoteGrid,
+      appNewQuote: NewQuote
+
+    },
+
+    methods: {
+      newQuote(quote) {
+        this.quotes.push(quote);
+      }
+    },
+
     props: {
       source: String
     }
