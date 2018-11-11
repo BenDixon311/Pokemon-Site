@@ -2,6 +2,8 @@
 <div class="row">
     <app-quote v-for="quote in quotes">{{ quote }}</app-quote>
 
+    <app-quote></app-quote>
+
 </div>
 
 
@@ -14,6 +16,12 @@ export default {
     props: ['quotes'],
     components: {
         appQuote: Quote
+    },
+
+    methods: {
+        getplayer() {
+            
+        }
     }
 }
 </script>
