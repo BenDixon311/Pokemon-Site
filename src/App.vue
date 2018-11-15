@@ -7,7 +7,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile @click="">
+        <v-list-tile >
           <v-list-tile-action>
             <v-icon>dashboard</v-icon>
           </v-list-tile-action>
@@ -15,7 +15,7 @@
             <v-list-tile-title>Dashboard</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="">
+        <v-list-tile >
           <v-list-tile-action>
             <v-icon>settings</v-icon>
           </v-list-tile-action>
@@ -23,6 +23,17 @@
             <v-list-tile-title>Settings</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-btn
+              fab
+              small
+              color="cyan accent-2"
+              bottom
+              left
+              absolute
+              @click="dialog = !dialog"
+            >
+             <v-icon>add</v-icon>
+            </v-btn>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
@@ -33,8 +44,20 @@
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
           <v-flex>
-             <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-            <app-quote-grid></app-quote-grid>
+            <div class="form-group">
+              <label>Username</label>
+              <input class="form-control" type="text" v-model="user.username">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input class="form-control" type="text" v-model="user.email">
+            </div>
+            <button class="btn btn-primary" @click="submit">Submit</button>
+
+            <button class="btn btn-primary" @click="fetchData">Get Data</button>
+            <ul class="list-group">
+              <li class=list-group-item v-for="u in users"> {{u.username}} - {{u.email}}</li>
+            </ul>
           </v-flex>
         </v-layout>
       </v-container>
@@ -46,30 +69,45 @@
 </template>
 
 <script>
-import QuoteGrid from './components/QuoteGrid.vue';
-import NewQuote from './components/NewQuote.vue';
+
   export default {
-    data: () => ({
-      drawer: null,
-      return: {
-        players: []
+    data() {
+      return {
+        user: {
+          username: '',
+          email: ''
+        },
+        users: [],
+       
       }
-    }),
-  
-    components: {
-      appQuoteGrid: QuoteGrid,
-      appNewQuote: NewQuote
-
     },
-
     methods: {
-      newQuote(quote) {
-        this.quotes.push(quote);
+      submit() {
+        this.$http.post('https://vuejs-http-35f6d.firebaseio.com/data.json', this.user)
+          .then(response=> {
+            console.log(response);
+          },
+          error=> {
+            console.log;
+          }
+          );
+      },
+      fetchData() {
+      
+        this.$http.get('https://vuejs-http-35f6d.firebaseio.com/data.json')
+          .then(response => {
+            return response.json();
+            
+            
+          }).then(data => {
+              const resultArray=[];
+              for(let key in data) {
+                resultArray.push(data[key]);
+              }
+            this.users = resultArray;
+          });
+          
       }
-    },
-
-    props: {
-      source: String
     }
   }
 </script>
