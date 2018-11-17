@@ -23,17 +23,7 @@
             <v-list-tile-title>Settings</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-btn
-              fab
-              small
-              color="cyan accent-2"
-              bottom
-              left
-              absolute
-              @click="dialog = !dialog"
-            >
-             <v-icon>add</v-icon>
-            </v-btn>
+       
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
