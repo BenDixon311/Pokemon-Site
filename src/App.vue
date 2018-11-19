@@ -34,6 +34,11 @@
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
           <v-flex>
+            <app-new-player></app-new-player>
+          </v-flex>
+
+
+         <!-- <v-flex>
             <div class="form-group">
               <label>Username</label>
               <input class="form-control" type="text" v-model="user.username">
@@ -48,18 +53,19 @@
             <ul class="list-group">
               <li class=list-group-item v-for="u in users"> {{u.username}} - {{u.email}}</li>
             </ul>
-          </v-flex>
+          </v-flex> -->
         </v-layout>
       </v-container>
     </v-content>
     <v-footer app fixed>
-      <span>&copy; 2017</span>
+      <span>&copy; 2018</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-
+import NewPlayer from './components/NewPlayer.vue';
+import Roster from './components/Roster.vue';
   export default {
     data() {
       return {
@@ -70,6 +76,9 @@
         users: [],
        
       }
+    },
+    components: {
+      appNewPlayer: NewPlayer
     },
     methods: {
       submit() {

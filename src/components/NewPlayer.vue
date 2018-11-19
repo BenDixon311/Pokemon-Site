@@ -37,6 +37,15 @@
                 
             ></v-select>
 
+            <v-btn
+                :disabled="!valid"
+                 @click="submit"
+             >
+                submit
+            </v-btn>
+
+            <v-btn @click="clear">clear</v-btn>
+
         </v-form>
 
     </div>
@@ -44,6 +53,8 @@
 
 
 <script>
+import axios from 'axios'
+
 export default {
     data () {
 
@@ -73,7 +84,26 @@ export default {
 
             }
         }
+    },
+    methods: {
+        submit () {
+          if (this.$refs.form.validate()) { //THIS DOES NOT WORK!
+          
+         axios.post('/api/submit', {
+             name: this.name,
+             email: this.email,
+             height: this.height,
+             weight: this.weight,
+             position: this.position
+          
+        })
+      }
+    },
+    clear () {
+      this.$refs.form.reset()
     }
+}
+
 }
 </script>
 
