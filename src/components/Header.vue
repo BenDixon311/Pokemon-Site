@@ -4,8 +4,10 @@
     <v-toolbar dark color="primary">
       <v-toolbar-side-icon></v-toolbar-side-icon>
   
-      <v-toolbar-title to="/" class="white--text"></v-toolbar-title>
-  
+      <v-toolbar-title  class="white--text">Pokemon Masters Only</v-toolbar-title>
+      <v-btn to="/" icon>
+      <v-icon>home</v-icon>
+      </v-btn>
       <v-spacer></v-spacer>
   
       <v-btn to="/Pokemon" icon>
