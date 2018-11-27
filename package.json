@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "material-design-icons-iconfont": "^3.0.3",
     "nba": "^4.5.0",
+    "pokedex-promise-v2": "^3.1.1",
     "roboto-fontface": "*",
     "vue": "^2.5.17",
     "vue-resource": "^1.5.1",
