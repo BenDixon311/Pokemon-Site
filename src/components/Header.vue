@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <v-app id="inspire">
+
     <v-toolbar dark color="primary">
       <v-toolbar-side-icon></v-toolbar-side-icon>
   
@@ -18,7 +18,7 @@
       
   
     </v-toolbar>
-  </v-app>
+  
 </div>
 </template>
 
