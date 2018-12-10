@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="app">
     <app-header></app-header>
       
     <router-view></router-view>
@@ -9,46 +9,37 @@
 <script>
 import Header from './components/Header.vue';
   export default {
-    data() {
-      return {
-        user: {
-          username: '',
-          email: ''
-        },
-        users: [],
-       
-      }
-    },
+  
     components: {
       appHeader: Header
     },
-    methods: {
-      submit() {
-        this.$http.post('https://vuejs-http-35f6d.firebaseio.com/data.json', this.user)
-          .then(response=> {
-            console.log(response);
-          },
-          error=> {
-            console.log;
-          }
-          );
-      },
-      fetchData() {
+    // methods: {
+    //   submit() {
+    //     this.$http.post('https://vuejs-http-35f6d.firebaseio.com/data.json', this.user)
+    //       .then(response=> {
+    //         console.log(response);
+    //       },
+    //       error=> {
+    //         console.log;
+    //       }
+    //       );
+    //   },
+    //   fetchData() {
       
-        this.$http.get('https://vuejs-http-35f6d.firebaseio.com/data.json')
-          .then(response => {
-            return response.json();
+    //     this.$http.get('https://vuejs-http-35f6d.firebaseio.com/data.json')
+    //       .then(response => {
+    //         return response.json();
             
             
-          }).then(data => {
-              const resultArray=[];
-              for(let key in data) {
-                resultArray.push(data[key]);
-              }
-            this.users = resultArray;
-          });
+    //       }).then(data => {
+    //           const resultArray=[];
+    //           for(let key in data) {
+    //             resultArray.push(data[key]);
+    //           }
+    //         this.users = resultArray;
+    //       });
           
-      }
-    }
+    //   }
+    // }
   }
 </script>

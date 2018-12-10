@@ -1,23 +1,17 @@
 <template>
   <div id="app">
-
-    <v-toolbar dark color="primary">
-      <v-toolbar-side-icon></v-toolbar-side-icon>
-  
-      <v-toolbar-title  class="white--text">Pokemon Masters Only</v-toolbar-title>
+    <v-toolbar app dark>
       <v-btn to="/" icon>
       <v-icon>home</v-icon>
       </v-btn>
+  
+      <v-toolbar-title  class="white--text">Become a Pokemon Master</v-toolbar-title>
+      
       <v-spacer></v-spacer>
   
-      <v-btn to="/Pokemon" icon>
-        
-        <v-icon>child_care</v-icon>
-      </v-btn>
-  
-      
-  
-    </v-toolbar>
+     
+    
+    </v-toolbar> 
   
 </div>
 </template>
