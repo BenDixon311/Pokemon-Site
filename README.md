@@ -1,4 +1,6 @@
-# final-proj
+# Pokemon Project
+
+View deployed site here: https://musing-tesla-dc38be.netlify.com/
 
 ## Project setup
 ```
